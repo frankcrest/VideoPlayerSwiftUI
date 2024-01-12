@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (5.8.1)
+  - Down (0.9.5)
+  - Parma (0.3.0):
+    - Down (~> 0.9.3)
+
+DEPENDENCIES:
+  - Alamofire
+  - Parma
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Down
+    - Parma
+
+SPEC CHECKSUMS:
+  Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
+  Down: 7321a72d0747ed0061dce948bcff518fcb6df2bd
+  Parma: 679bca1c20ac336fffcdf9ff1ba0db9388a86a13
+
+PODFILE CHECKSUM: 778c8c3f0a54f1bc7a2e3808fb940dab74e928a4
+
+COCOAPODS: 1.12.0
