@@ -11,7 +11,10 @@ import AVKit
 class VideoPlayerViewModel: ObservableObject {
     @Published var player: AVPlayer = AVPlayer()
     @Published var isPlaying: Bool = false
+    @Published var videos: [Video] = []
+    private var playerItems: [AVPlayerItem] = []
     private let networkManager: NetworkService
+    @Published var errorMessage: String = ""
     
     init(networkManager: NetworkService) {
         self.networkManager = networkManager
@@ -19,6 +22,15 @@ class VideoPlayerViewModel: ObservableObject {
     }
     
     func fetchVideos() {
-        
+        networkManager.fetchVideos { result in
+            switch result {
+            case .success(let videos):
+                self.videos = videos
+                print(videos)
+            case .failure(let error):
+                self.errorMessage = error.localizedDescription
+            }
+        }
     }
+    
 }

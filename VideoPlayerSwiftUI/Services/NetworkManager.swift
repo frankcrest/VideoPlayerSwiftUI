@@ -10,6 +10,7 @@ import Alamofire
 
 protocol NetworkService {
     func setupURL()
+    func fetchVideos(completion: @escaping(Result<[Video], AFError>) -> Void)
 }
 
 class NetworkManager: NetworkService {
@@ -19,8 +20,20 @@ class NetworkManager: NetworkService {
         setupURL()
     }
     
-    func fetchVideos() {
+    func fetchVideos(completion: @escaping(Result<[Video], AFError>) -> Void) {
+        guard let url = url else {
+            completion(.failure(AFError.invalidURL(url: Constants.videoURLString)))
+            return
+        }
         
+        AF.request(url).responseDecodable(of: [Video].self) { response in
+            switch response.result {
+            case .success(let videos):
+                completion(.success(videos))
+            case .failure(let afError):
+                completion(.failure(afError))
+            }
+        }
     }
     
     func setupURL() {
