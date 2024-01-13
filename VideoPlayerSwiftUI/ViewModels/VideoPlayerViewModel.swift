@@ -126,4 +126,8 @@ class VideoPlayerViewModel: ObservableObject {
         playTrack()
     }
     
+    func getAllPlayerItems() -> [AVPlayerItem] {
+        return playerItems
+    }
+    
 }
