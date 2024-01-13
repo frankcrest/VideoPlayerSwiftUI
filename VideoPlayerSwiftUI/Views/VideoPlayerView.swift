@@ -61,6 +61,13 @@ struct VideoPlayerView: View {
                         .padding(.horizontal, 80)
                     }
                 }
+                .frame(height: 300)
+                
+                ScrollView {
+                    Text("Title")
+                    Text("Author")
+                    Text("Description")
+                }
             }
             .navigationTitle("Video Player")
             .navigationBarTitleDisplayMode(.inline)
