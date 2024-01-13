@@ -24,6 +24,7 @@
 		E9E975F12B52133F005C14CB /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E975F02B52133F005C14CB /* Author.swift */; };
 		E9E975F32B521C8E005C14CB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E975F22B521C8E005C14CB /* DateFormatter.swift */; };
 		E9E975F52B522992005C14CB /* PlayBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E975F42B522992005C14CB /* PlayBackButton.swift */; };
+		E9E975F72B523F08005C14CB /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E975F62B523F08005C14CB /* MockNetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		E9E975F02B52133F005C14CB /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		E9E975F22B521C8E005C14CB /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		E9E975F42B522992005C14CB /* PlayBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayBackButton.swift; sourceTree = "<group>"; };
+		E9E975F62B523F08005C14CB /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		FB023B07706AEAE967D36F3A /* Pods_VideoPlayerSwiftUI_VideoPlayerSwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoPlayerSwiftUI_VideoPlayerSwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				E9E975EA2B5210C6005C14CB /* NetworkManager.swift */,
+				E9E975F62B523F08005C14CB /* MockNetworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				E9E975F32B521C8E005C14CB /* DateFormatter.swift in Sources */,
 				E9E975E22B52098C005C14CB /* VideoPlayerViewModel.swift in Sources */,
 				E9E975E82B520F90005C14CB /* AVPlayerController+Extension.swift in Sources */,
+				E9E975F72B523F08005C14CB /* MockNetworkManager.swift in Sources */,
 				E9E975F12B52133F005C14CB /* Author.swift in Sources */,
 				E9E975EB2B5210C6005C14CB /* NetworkManager.swift in Sources */,
 				3AF67A5E25A64DBD00D360A7 /* VideoPlayerView.swift in Sources */,

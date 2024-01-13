@@ -48,7 +48,7 @@ class VideoPlayerSwiftUITests: XCTestCase {
         wait(for: [exp], timeout: 5)
     }
     
-    func test_VideoPlayerViewModel_shouldGoToPreviousItem() {
+    func test_VideoPlayerViewModel_player_shouldGoToPreviousItem() {
         let vm = VideoPlayerViewModel(networkManager: NetworkManager())
         let exp = expectation(description: "Loading videos")
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
@@ -62,6 +62,12 @@ class VideoPlayerSwiftUITests: XCTestCase {
             exp.fulfill()
         }
         wait(for: [exp], timeout: 5)
+    }
+    
+    func test_VideoPlayerViewModel_With_MockNetWorkManager() {
+        let mockNetworkManager = MockNetworkManager()
+        let vm = VideoPlayerViewModel(networkManager: MockNetworkManager())
+        XCTAssertEqual(vm.videos.count, 2)
     }
 
     func testExample() throws {
