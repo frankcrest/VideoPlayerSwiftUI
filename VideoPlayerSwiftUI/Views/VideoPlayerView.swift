@@ -10,7 +10,7 @@ import AVKit
 
 struct VideoPlayerView: View {
     
-    @StateObject private var videoPlayerViewModel: VideoPlayerViewModel = VideoPlayerViewModel()
+    @StateObject private var videoPlayerViewModel: VideoPlayerViewModel = VideoPlayerViewModel(networkManager: NetworkManager())
     
     var body: some View {
         NavigationStack {

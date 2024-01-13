@@ -20,6 +20,8 @@
 		E9E975E82B520F90005C14CB /* AVPlayerController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E975E72B520F90005C14CB /* AVPlayerController+Extension.swift */; };
 		E9E975EB2B5210C6005C14CB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E975EA2B5210C6005C14CB /* NetworkManager.swift */; };
 		E9E975ED2B52119E005C14CB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E975EC2B52119E005C14CB /* Constants.swift */; };
+		E9E975EF2B521307005C14CB /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E975EE2B521307005C14CB /* Video.swift */; };
+		E9E975F12B52133F005C14CB /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E975F02B52133F005C14CB /* Author.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		E9E975E72B520F90005C14CB /* AVPlayerController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayerController+Extension.swift"; sourceTree = "<group>"; };
 		E9E975EA2B5210C6005C14CB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E9E975EC2B52119E005C14CB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E9E975EE2B521307005C14CB /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		E9E975F02B52133F005C14CB /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		FB023B07706AEAE967D36F3A /* Pods_VideoPlayerSwiftUI_VideoPlayerSwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoPlayerSwiftUI_VideoPlayerSwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -192,6 +196,8 @@
 		E9E975E52B520F67005C14CB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E9E975EE2B521307005C14CB /* Video.swift */,
+				E9E975F02B52133F005C14CB /* Author.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -461,9 +467,11 @@
 			files = (
 				E9E975E22B52098C005C14CB /* VideoPlayerViewModel.swift in Sources */,
 				E9E975E82B520F90005C14CB /* AVPlayerController+Extension.swift in Sources */,
+				E9E975F12B52133F005C14CB /* Author.swift in Sources */,
 				E9E975EB2B5210C6005C14CB /* NetworkManager.swift in Sources */,
 				3AF67A5E25A64DBD00D360A7 /* VideoPlayerView.swift in Sources */,
 				3AF67A5C25A64DBD00D360A7 /* VideoPlayerSwiftUIApp.swift in Sources */,
+				E9E975EF2B521307005C14CB /* Video.swift in Sources */,
 				E9E975ED2B52119E005C14CB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

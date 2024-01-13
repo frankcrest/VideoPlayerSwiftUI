@@ -9,21 +9,21 @@ import Foundation
 import Alamofire
 
 protocol NetworkService {
-
+    func setupURL()
 }
 
-class NetworkManager {
-    private let url: URL
+class NetworkManager: NetworkService {
+    private var url: URL?
     
-    init?(url: String) {
-        guard let url = URL(string: url) else {
-            return nil
-        }
-        
-        self.url = url
+    init() {
+        setupURL()
     }
     
     func fetchVideos() {
         
+    }
+    
+    func setupURL() {
+        self.url = URL(string: Constants.videoURLString)
     }
 }
