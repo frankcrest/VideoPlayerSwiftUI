@@ -14,14 +14,21 @@ class VideoPlayerViewModel: ObservableObject {
     @Published var videos: [Video] = []
     private var playerItems: [AVPlayerItem] = []
     private let networkManager: NetworkService
+    @Published var currentIndex = 0
     @Published var errorMessage: String = ""
+    var disablePreviousButton: Bool {
+        shouldDisablePreviousButton()
+    }
+    var disableNextButton: Bool {
+        shouldDisableNextButton()
+    }
     
     init(networkManager: NetworkService) {
         self.networkManager = networkManager
         fetchVideos()
     }
     
-    func fetchVideos() {
+    private func fetchVideos() {
         networkManager.fetchVideos { result in
             switch result {
             case .success(let videos):
@@ -33,7 +40,7 @@ class VideoPlayerViewModel: ObservableObject {
         }
     }
     
-    func setupPlayer() {
+    private func setupPlayer() {
         let playerItems: [AVPlayerItem] = videos.compactMap { video in
             if let hlsURL = URL(string: video.hlsURL) {
                 return AVPlayerItem(url: hlsURL)
@@ -55,6 +62,48 @@ class VideoPlayerViewModel: ObservableObject {
             player.play()
         }
         isPlaying.toggle()
+    }
+    
+    func pause() {
+        player.pause()
+        isPlaying = false
+    }
+    
+    func previous() {
+        guard currentIndex > 0 else {
+            return
+        }
+        
+        currentIndex -= 1
+        
+        playTrack()
+    }
+    
+    func next() {
+        guard currentIndex < playerItems.count - 1 else {
+            return
+        }
+        
+        currentIndex += 1
+        
+        playTrack()
+    }
+    
+    private func playTrack() {
+        if playerItems.count > 0 {
+            pause()
+            player.seek(to: CMTime.zero)
+            player.replaceCurrentItem(with: playerItems[currentIndex])
+        }
+    }
+    
+    private func shouldDisablePreviousButton() -> Bool {
+       return currentIndex == 0
+
+    }
+    
+    private func shouldDisableNextButton() -> Bool {
+        return currentIndex == playerItems.count - 1
     }
     
 }

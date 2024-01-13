@@ -18,7 +18,9 @@ struct VideoPlayerView: View {
                 VideoPlayer(player: videoPlayerViewModel.player) {
                     VStack(alignment: .center) {
                         HStack {
-                            Button(action: {}, label: {
+                            Button(action: {
+                                videoPlayerViewModel.previous()
+                            }, label: {
                                 Image("previous")
                                     .resizable()
                                     .frame(width: 44, height: 44)
@@ -29,6 +31,7 @@ struct VideoPlayerView: View {
                                             .stroke(.black, lineWidth: 1.0)
                                     }
                             })
+                            .disabled(videoPlayerViewModel.disablePreviousButton)
                             
                             Spacer()
                             
@@ -48,7 +51,9 @@ struct VideoPlayerView: View {
                             
                             Spacer()
                             
-                            Button(action: {}, label: {
+                            Button(action: {
+                                videoPlayerViewModel.next()
+                            }, label: {
                                 Image("next")
                                     .resizable()
                                     .frame(width: 44, height: 44)
@@ -59,6 +64,7 @@ struct VideoPlayerView: View {
                                             .stroke(.black, lineWidth: 1.0)
                                     }
                             })
+                            .disabled(videoPlayerViewModel.disableNextButton)
                         }
                         .padding(.horizontal, 80)
                     }
