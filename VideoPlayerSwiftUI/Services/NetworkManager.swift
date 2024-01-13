@@ -26,7 +26,10 @@ class NetworkManager: NetworkService {
             return
         }
         
-        AF.request(url).responseDecodable(of: [Video].self) { response in
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+        
+        AF.request(url).responseDecodable(of: [Video].self, decoder: decoder) { response in
             switch response.result {
             case .success(let videos):
                 completion(.success(videos))

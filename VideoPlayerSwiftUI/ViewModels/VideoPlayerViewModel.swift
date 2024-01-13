@@ -25,8 +25,7 @@ class VideoPlayerViewModel: ObservableObject {
         networkManager.fetchVideos { result in
             switch result {
             case .success(let videos):
-                self.videos = videos
-                print(videos)
+                self.videos = videos.sorted(by: {$0.publishedAt < $1.publishedAt })
             case .failure(let error):
                 self.errorMessage = error.localizedDescription
             }

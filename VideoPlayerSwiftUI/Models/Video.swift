@@ -13,6 +13,6 @@ struct Video: Decodable {
     let hlsURL: String
     let fullURL: String
     let description: String
-    let publishedAt: String
+    let publishedAt: Date
     let author: Author
 }
