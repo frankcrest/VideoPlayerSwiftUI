@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVKit
+import Parma
 
 struct VideoPlayerView: View {
     
@@ -71,10 +72,20 @@ struct VideoPlayerView: View {
                 }
                 .frame(height: 300)
                 
-                ScrollView {
-                    Text("Title")
-                    Text("Author")
-                    Text("Description")
+                if !videoPlayerViewModel.videos.isEmpty {
+                    ScrollView {
+                        VStack(alignment: .leading) {
+                            Text(videoPlayerViewModel.currentVideo.title)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.title)
+                            Text(videoPlayerViewModel.currentVideo.author.name)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.title3)
+                                .padding(.bottom, 10)
+                        }
+                        Parma(videoPlayerViewModel.currentVideo.description)
+                    }
+                    .padding(.horizontal, 10)
                 }
             }
             .navigationTitle("Video Player")

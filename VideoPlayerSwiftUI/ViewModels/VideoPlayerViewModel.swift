@@ -22,6 +22,9 @@ class VideoPlayerViewModel: ObservableObject {
     var disableNextButton: Bool {
         shouldDisableNextButton()
     }
+    var currentVideo: Video {
+        videos[currentIndex]
+    }
     
     init(networkManager: NetworkService) {
         self.networkManager = networkManager
