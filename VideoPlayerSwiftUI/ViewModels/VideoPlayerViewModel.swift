@@ -16,6 +16,9 @@ class VideoPlayerViewModel: ObservableObject {
     private let networkManager: NetworkService
     @Published var currentIndex = 0
     @Published var errorMessage: String = ""
+    @Published var showAlert: Bool = false
+    @Published var isLoading: Bool = false
+    
     var disablePreviousButton: Bool {
         shouldDisablePreviousButton()
     }
@@ -32,13 +35,17 @@ class VideoPlayerViewModel: ObservableObject {
     }
     
     private func fetchVideos() {
+        isLoading = true
         networkManager.fetchVideos { result in
             switch result {
             case .success(let videos):
                 self.videos = videos.sorted(by: { $0.publishedAt < $1.publishedAt })
                 self.setupPlayer()
+                self.isLoading = false
             case .failure(let error):
                 self.errorMessage = error.localizedDescription
+                self.showAlert = true
+                self.isLoading = false
             }
         }
     }
