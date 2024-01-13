@@ -14,11 +14,18 @@ protocol NetworkService {
 }
 
 class NetworkManager: NetworkService {
+    
+    // MARK: - Properties
+    
     private var url: URL?
+    
+    // MARK: - Initialization
     
     init() {
         setupURL()
     }
+    
+    // MARK: - Methods
     
     func fetchVideos(completion: @escaping(Result<[Video], AFError>) -> Void) {
         guard let url = url else {
