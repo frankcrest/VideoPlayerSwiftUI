@@ -48,4 +48,13 @@ class VideoPlayerViewModel: ObservableObject {
         player = AVPlayer(playerItem: playerItems.first)
     }
     
+    func playPause() {
+        if isPlaying {
+            player.pause()
+        } else {
+            player.play()
+        }
+        isPlaying.toggle()
+    }
+    
 }

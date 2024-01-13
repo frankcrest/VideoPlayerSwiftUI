@@ -32,7 +32,9 @@ struct VideoPlayerView: View {
                             
                             Spacer()
                             
-                            Button(action: {}, label: {
+                            Button(action: {
+                                videoPlayerViewModel.playPause()
+                            }, label: {
                                 Image(videoPlayerViewModel.isPlaying ? "pause" : "play")
                                     .resizable()
                                     .frame(width: 60, height: 60)
