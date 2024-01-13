@@ -9,15 +9,19 @@ import Foundation
 import AVKit
 
 class VideoPlayerViewModel: ObservableObject {
+    
+    // MARK: - Properties
+    
     @Published var player: AVPlayer = AVPlayer()
     @Published var isPlaying: Bool = false
     @Published var videos: [Video] = []
-    private var playerItems: [AVPlayerItem] = []
-    private let networkManager: NetworkService
     @Published var currentIndex = 0
     @Published var errorMessage: String = ""
     @Published var showAlert: Bool = false
     @Published var isLoading: Bool = false
+    
+    private var playerItems: [AVPlayerItem] = []
+    private let networkManager: NetworkService
     
     var disablePreviousButton: Bool {
         shouldDisablePreviousButton()
@@ -29,10 +33,14 @@ class VideoPlayerViewModel: ObservableObject {
         videos[currentIndex]
     }
     
+    // MARK: - Initialization
+    
     init(networkManager: NetworkService) {
         self.networkManager = networkManager
         fetchVideos()
     }
+    
+    // MARK: - Methods
     
     private func fetchVideos() {
         isLoading = true
@@ -64,6 +72,25 @@ class VideoPlayerViewModel: ObservableObject {
         self.playerItems = playerItems
         player = AVPlayer(playerItem: playerItems.first)
     }
+    
+    private func playTrack() {
+        if playerItems.count > 0 {
+            pause()
+            player.seek(to: CMTime.zero)
+            player.replaceCurrentItem(with: playerItems[currentIndex])
+        }
+    }
+    
+    private func shouldDisablePreviousButton() -> Bool {
+       return currentIndex == 0
+
+    }
+    
+    private func shouldDisableNextButton() -> Bool {
+        return currentIndex == playerItems.count - 1
+    }
+    
+    // MARK: - Actions
     
     func playPause() {
         if isPlaying {
@@ -97,23 +124,6 @@ class VideoPlayerViewModel: ObservableObject {
         currentIndex += 1
         
         playTrack()
-    }
-    
-    private func playTrack() {
-        if playerItems.count > 0 {
-            pause()
-            player.seek(to: CMTime.zero)
-            player.replaceCurrentItem(with: playerItems[currentIndex])
-        }
-    }
-    
-    private func shouldDisablePreviousButton() -> Bool {
-       return currentIndex == 0
-
-    }
-    
-    private func shouldDisableNextButton() -> Bool {
-        return currentIndex == playerItems.count - 1
     }
     
 }
